@@ -116,8 +116,10 @@ const CreateAddons = () => {
 
       const result = await response.json();
       console.log("Addons saved successfully:", result);
+      window?.shopify?.toast?.show("Saved successfully");
     } catch (error) {
       console.error("Error saving addons:", error);
+      window?.shopify?.toast?.show("Error while saving addons");
     } finally {
       setSaving(false);
     }

@@ -9,13 +9,36 @@ import {
   Text,
 } from "@shopify/polaris";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 const ViewAddons = ({ addons }) => {
   const router = useRouter();
+  const [saveLoading, setSaveLoading] = useState(false);
+
+  async function saveToMetafield() {
+    setSaveLoading(true);
+    try {
+      const response = await (await fetch("/api/apps/metafield")).json();
+      if (response.error) {
+        throw Error("An error occured while trying to write the metafield");
+      }
+      window?.shopify?.toast?.show("Saved to metafield");
+    } catch (e) {
+      console.log(e);
+      window?.shopify?.toast?.show("An error occured while saving metafield");
+    } finally {
+      setSaveLoading(false);
+    }
+  }
 
   return (
     <Page
       title="View Addons"
+      primaryAction={{
+        content: "Save",
+        onAction: saveToMetafield,
+        loading: saveLoading,
+      }}
       backAction={{
         onAction: () => {
           router.push("/");

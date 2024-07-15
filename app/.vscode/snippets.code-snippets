@@ -154,7 +154,7 @@
     "body": [
       "// import clientProvider from \"@/utils/clientProvider\";",
       "",
-      "  const { client } = await clientProvider.online.graphqlClient({",
+      "  const { client } = await clientProvider.offline.graphqlClient({",
       "   shop: req.user_shop,",
       "  });",
       "",
@@ -163,5 +163,24 @@
       "  );",
     ],
     "description": "Offline GraphQL Client Provider",
+  },
+  "Create POST Request": {
+    "prefix": "createPost",
+    "body": [
+      "const $1 = await (await fetch(\"/api/apps$2\",",
+      "{",
+      "  headers: {",
+      "Accept: \"application/json\",",
+      "\"Content-Type\": \"application/json\",",
+      "  },",
+      "  method: \"POST\",",
+      "  body: JSON.stringify(),",
+      "})).json();",
+    ],
+  },
+
+  "Create GET Request": {
+    "prefix": "createGet",
+    "body": ["const $1 = await (await fetch(\"/api/apps$2\")).json()"],
   },
 }
