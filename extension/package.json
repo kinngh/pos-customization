@@ -3,10 +3,23 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pretty": "prettier --write ./",
+    "update": "ncu -u",
+    "-----> Shopify <-----": "",
+    "shopify": "shopify",
+    "build": "shopify app build",
+    "generate": "shopify app generate extension; bun uninstall @shopify/ui-extensions",
+    "dev": "shopify app dev",
+    "info": "shopify app info",
+    "deploy": "shopify app deploy"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "dependencies": {
+    "@shopify/ui-extensions-react": "2024.7.x",
+    "react": "^18.3.1",
+    "react-reconciler": "^0.29.2"
+  },
+  "devDependencies": {
+    "npm-check-updates": "^16.14.20",
+    "prettier": "^3.3.3"
+  }
 }

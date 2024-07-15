@@ -1,0 +1,33 @@
+# Avoid writing to toml directly. Use your .env file instead
+
+name = "PoS Furniture"
+handle = "hue-pos-furniture"
+client_id = "79195ef4a5188be3f27e93635c17e01e"
+application_url = "https://steering-me-israel-fabric.trycloudflare.com"
+embedded = true
+extension_directories = [ "extension/extensions/*" ]
+
+[auth]
+redirect_urls = [ "https://steering-me-israel-fabric.trycloudflare.com/api/" ]
+
+[access_scopes]
+scopes = "write_products,write_orders"
+use_legacy_install_flow = false
+
+[webhooks]
+api_version = "2024-07"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "https://steering-me-israel-fabric.trycloudflare.com/api/webhooks/app_uninstalled"
+
+  [webhooks.privacy_compliance]
+  customer_data_request_url = "https://steering-me-israel-fabric.trycloudflare.com/api/gdpr/customers_data_request"
+  customer_deletion_url = "https://steering-me-israel-fabric.trycloudflare.com/api/gdpr/customers_redact"
+  shop_deletion_url = "https://steering-me-israel-fabric.trycloudflare.com/api/gdpr/shop_redact"
+
+[pos]
+embedded = false
+
+[build]
+include_config_on_deploy = true

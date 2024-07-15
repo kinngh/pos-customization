@@ -1,0 +1,5 @@
+.env
+**/dist/
+bun.lockb
+node_modules/
+shopify.app.toml
