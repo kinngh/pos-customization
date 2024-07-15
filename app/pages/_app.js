@@ -15,6 +15,17 @@ const App = ({ Component, pageProps }) => {
           <Component {...pageProps} />
         </AppBridgeProvider>
       </PolarisProvider>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </>
   );
 };

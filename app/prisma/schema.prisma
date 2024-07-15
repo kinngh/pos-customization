@@ -21,7 +21,22 @@ model session {
   id      String  @id
   content String? @db.Text
   shop    String?
-  
+
   @@index([id])
   @@index([shop])
+}
+
+model addons {
+  id     String @id
+  addons Json[]
+  shop   String
+
+  @@unique([id, shop])
+}
+
+enum relAddons {
+  id
+  name
+  price
+  notes
 }
